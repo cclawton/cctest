@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meditation Timer</h1>
+
+        <div class="settings-panel" id="settingsPanel">
+            <h2>Timer Settings</h2>
+
+            <div class="setting-group">
+                <label for="totalMinutes">Total Duration (minutes):</label>
+                <input type="number" id="totalMinutes" min="1" max="999" value="75" placeholder="Minutes">
+                <input type="number" id="totalSeconds" min="0" max="59" value="0" placeholder="Seconds">
+            </div>
+
+            <div class="setting-group">
+                <label for="intervalMinutes">Periodic Interval (minutes):</label>
+                <input type="number" id="intervalMinutes" min="0" max="999" value="12" placeholder="Minutes">
+                <input type="number" id="intervalSeconds" min="0" max="59" value="0" placeholder="Seconds">
+            </div>
+
+            <div class="setting-group">
+                <h3>Audio Settings</h3>
+
+                <div class="audio-upload">
+                    <label for="startAudio">Start Sound:</label>
+                    <input type="file" id="startAudio" accept="audio/*">
+                    <span class="file-name" id="startFileName">No file selected</span>
+                    <button class="test-audio-btn" id="testStartAudio" disabled>Test</button>
+                </div>
+
+                <div class="audio-upload">
+                    <label for="intervalAudio">Interval Sound:</label>
+                    <input type="file" id="intervalAudio" accept="audio/*">
+                    <span class="file-name" id="intervalFileName">No file selected</span>
+                    <button class="test-audio-btn" id="testIntervalAudio" disabled>Test</button>
+                </div>
+
+                <div class="audio-upload">
+                    <label for="endAudio">End Sound:</label>
+                    <input type="file" id="endAudio" accept="audio/*">
+                    <span class="file-name" id="endFileName">No file selected</span>
+                    <button class="test-audio-btn" id="testEndAudio" disabled>Test</button>
+                </div>
+            </div>
+
+            <button id="startBtn" class="btn btn-primary">Start Meditation</button>
+        </div>
+
+        <div class="timer-panel" id="timerPanel" style="display: none;">
+            <div class="timer-display">
+                <div class="time-remaining">
+                    <h2>Time Remaining</h2>
+                    <div class="time" id="timeDisplay">00:00:00</div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <div class="next-interval">
+                    <p>Next interval in: <span id="nextInterval">00:00</span></p>
+                </div>
+
+                <div class="intervals-count">
+                    <p>Intervals completed: <span id="intervalsCount">0</span></p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="pauseBtn" class="btn btn-secondary">Pause</button>
+                <button id="stopBtn" class="btn btn-danger">Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
