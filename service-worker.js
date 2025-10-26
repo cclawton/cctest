@@ -1,10 +1,10 @@
-const CACHE_NAME = 'meditation-timer-v2';
+const CACHE_NAME = 'meditation-timer-v3';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/app.js',
-  '/manifest.json'
+  './',
+  './index.html',
+  './styles.css',
+  './app.js',
+  './manifest.json'
 ];
 
 // Install event - cache resources
