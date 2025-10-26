@@ -30,15 +30,31 @@
             <h2>Timer Settings</h2>
 
             <div class="setting-group">
-                <label for="totalMinutes">Total Duration (minutes):</label>
-                <input type="number" id="totalMinutes" min="1" max="999" value="75" placeholder="Minutes">
-                <input type="number" id="totalSeconds" min="0" max="59" value="0" placeholder="Seconds">
+                <label for="totalMinutes">Total Duration</label>
+                <div class="input-row">
+                    <div class="input-wrapper">
+                        <input type="number" id="totalMinutes" min="1" max="999" value="75" placeholder="75">
+                        <span class="input-label">minutes</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="totalSeconds" min="0" max="59" value="0" placeholder="0">
+                        <span class="input-label">seconds</span>
+                    </div>
+                </div>
             </div>
 
             <div class="setting-group">
-                <label for="intervalMinutes">Periodic Interval (minutes):</label>
-                <input type="number" id="intervalMinutes" min="0" max="999" value="12" placeholder="Minutes">
-                <input type="number" id="intervalSeconds" min="0" max="59" value="0" placeholder="Seconds">
+                <label for="intervalMinutes">Periodic Interval</label>
+                <div class="input-row">
+                    <div class="input-wrapper">
+                        <input type="number" id="intervalMinutes" min="0" max="999" value="12" placeholder="12">
+                        <span class="input-label">minutes</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="intervalSeconds" min="0" max="59" value="0" placeholder="0">
+                        <span class="input-label">seconds</span>
+                    </div>
+                </div>
             </div>
 
             <div class="setting-group">
