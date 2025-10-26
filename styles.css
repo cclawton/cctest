@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #5a67d8;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #4c51bf;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+h3 {
+    color: #5a67d8;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.settings-panel, .timer-panel {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.setting-group {
+    margin-bottom: 25px;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.setting-group input[type="number"] {
+    width: calc(50% - 5px);
+    padding: 10px;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.setting-group input[type="number"]:first-of-type {
+    margin-right: 10px;
+}
+
+.setting-group input[type="number"]:focus {
+    outline: none;
+    border-color: #5a67d8;
+}
+
+.audio-upload {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 8px;
+}
+
+.audio-upload label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.audio-upload input[type="file"] {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.file-name {
+    display: inline-block;
+    color: #718096;
+    font-size: 14px;
+    font-style: italic;
+    margin-right: 10px;
+}
+
+.test-audio-btn {
+    background: #48bb78;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.test-audio-btn:hover:not(:disabled) {
+    background: #38a169;
+}
+
+.test-audio-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #ed8936;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-secondary:hover {
+    background: #dd6b20;
+}
+
+.btn-danger {
+    background: #f56565;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #e53e3e;
+}
+
+.timer-display {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.time-remaining {
+    margin-bottom: 25px;
+}
+
+.time-remaining h2 {
+    font-size: 1.3em;
+    color: #4c51bf;
+    margin-bottom: 15px;
+}
+
+.time {
+    font-size: 4em;
+    font-weight: bold;
+    color: #5a67d8;
+    font-variant-numeric: tabular-nums;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 1s linear;
+    border-radius: 10px;
+}
+
+.next-interval, .intervals-count {
+    margin-bottom: 15px;
+}
+
+.next-interval p, .intervals-count p {
+    font-size: 1.1em;
+    color: #2d3748;
+}
+
+.next-interval span, .intervals-count span {
+    font-weight: bold;
+    color: #5a67d8;
+    font-size: 1.2em;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .time {
+        font-size: 3em;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .btn-secondary {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
