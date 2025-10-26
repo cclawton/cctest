@@ -94,8 +94,12 @@ class MeditationTimer {
 
     loadAudioFromPath(path, type) {
         this.audioFiles[type] = new Audio(path);
-        this.audioFiles[type].addEventListener('error', () => {
-            console.warn(`Failed to load ${type} audio from ${path}`);
+        this.audioFiles[type].addEventListener('error', (e) => {
+            console.error(`Failed to load ${type} audio from ${path}`, e);
+            alert(`Error loading ${type} audio. Please check that the audio file exists at: ${path}`);
+        });
+        this.audioFiles[type].addEventListener('canplaythrough', () => {
+            console.log(`${type} audio loaded successfully from ${path}`);
         });
     }
 
@@ -160,7 +164,24 @@ class MeditationTimer {
     playAudio(type) {
         if (this.audioFiles[type]) {
             this.audioFiles[type].currentTime = 0;
-            this.audioFiles[type].play();
+            const playPromise = this.audioFiles[type].play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log(`${type} audio playing`);
+                }).catch(error => {
+                    console.error(`Error playing ${type} audio:`, error);
+                    // Show user-friendly error only if not during meditation
+                    if (!this.isRunning) {
+                        alert(`Unable to play ${type} audio. Error: ${error.message}\n\nTip: Try clicking the Test button again.`);
+                    }
+                });
+            }
+        } else {
+            console.warn(`No audio loaded for ${type}`);
+            if (!this.isRunning) {
+                alert(`No audio file loaded for ${type} sound.`);
+            }
         }
     }
 

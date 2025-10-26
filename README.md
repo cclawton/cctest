@@ -82,12 +82,50 @@ Works in all modern browsers that support:
 - FileReader API
 - ES6 JavaScript
 
+## Troubleshooting
+
+### Audio Not Playing
+
+If the audio files aren't playing when you click Test or start meditation:
+
+1. **Check Browser Console**: Open your browser's developer tools (F12) and check the Console tab for errors
+2. **Verify File Paths**: Make sure the `audio/` directory is in the same location as `index.html`
+3. **Test Audio Files**: Open `test-audio.html` in your browser to verify the audio files can be loaded and played
+4. **Browser Permissions**: Some browsers (especially Brave/Chrome) have strict autoplay policies:
+   - Click the Test button to verify audio works with user interaction
+   - Check browser settings for audio/autoplay permissions
+5. **File Format**: Ensure your browser supports the audio formats (MP3 and WAV are widely supported)
+6. **Local File Access**: If opening directly from file system, you may need to:
+   - Use a local web server (e.g., `python3 -m http.server 8000`)
+   - Or adjust browser security settings for local files
+
+### Using a Local Web Server
+
+For best results, serve the files with a web server:
+
+```bash
+# Navigate to the project directory
+cd /path/to/meditation-app
+
+# Start a simple HTTP server (Python 3)
+python3 -m http.server 8000
+
+# Or with Python 2
+python -m SimpleHTTPServer 8000
+
+# Or with Node.js (if you have http-server installed)
+npx http-server -p 8000
+```
+
+Then open `http://localhost:8000` in your browser.
+
 ## Tips for Best Experience
 
 1. Use high-quality, calming audio files (MP3, WAV, or OGG format)
 2. Test your audio files before starting to ensure proper volume
 3. Use headphones for a more immersive experience
 4. Consider using different sounds for start, interval, and end to create variety
+5. For local testing, use a web server rather than opening files directly
 
 Enjoy your meditation practice!
 
