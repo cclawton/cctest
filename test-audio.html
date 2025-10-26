@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Files Test</h1>
+    <p>This page tests if the audio files can be loaded and played.</p>
+
+    <div class="test-section">
+        <h2>Test Audio Files</h2>
+        <button onclick="testAudio('audio/start-bell.wav')">Test Start Bell</button>
+        <button onclick="testAudio('audio/interval-bell.mp3')">Test Interval Bell</button>
+        <button onclick="testAudio('audio/end-bell.wav')">Test End Bell</button>
+    </div>
+
+    <div class="test-section">
+        <h2>HTML5 Audio Elements</h2>
+        <div>
+            <label>Start Bell:</label><br>
+            <audio controls src="audio/start-bell.wav"></audio>
+        </div>
+        <div style="margin-top: 10px;">
+            <label>Interval Bell:</label><br>
+            <audio controls src="audio/interval-bell.mp3"></audio>
+        </div>
+        <div style="margin-top: 10px;">
+            <label>End Bell:</label><br>
+            <audio controls src="audio/end-bell.wav"></audio>
+        </div>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+
+        function log(message) {
+            output.textContent += message + '\n';
+            console.log(message);
+        }
+
+        function testAudio(path) {
+            log(`\nTesting: ${path}`);
+            const audio = new Audio(path);
+
+            audio.addEventListener('loadeddata', () => {
+                log(`✓ Loaded: ${path}`);
+            });
+
+            audio.addEventListener('canplaythrough', () => {
+                log(`✓ Can play: ${path}`);
+            });
+
+            audio.addEventListener('error', (e) => {
+                log(`✗ Error loading: ${path}`);
+                log(`  Error: ${audio.error ? audio.error.message : 'Unknown error'}`);
+            });
+
+            audio.play().then(() => {
+                log(`✓ Playing: ${path}`);
+            }).catch((error) => {
+                log(`✗ Play failed: ${path}`);
+                log(`  Error: ${error.message}`);
+            });
+        }
+
+        // Test on page load
+        window.addEventListener('load', () => {
+            log('Page loaded. Testing audio file access...\n');
+        });
+    </script>
+</body>
+</html>
