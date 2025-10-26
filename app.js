@@ -87,7 +87,7 @@ class MeditationTimer {
 
     loadDefaultAudio() {
         // Load default audio files on page load
-        this.loadAudioFromPath('audio/start-bell.mp3', 'start');
+        this.loadAudioFromPath('audio/start-bell.wav', 'start');
         this.loadAudioFromPath('audio/interval-bell.mp3', 'interval');
         this.loadAudioFromPath('audio/end-bell.wav', 'end');
     }
