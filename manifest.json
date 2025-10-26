@@ -2,7 +2,8 @@
   "name": "Meditation Timer",
   "short_name": "Meditate",
   "description": "A simple meditation timer with customizable intervals and audio alerts",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#667eea",
@@ -63,14 +64,14 @@
       "name": "Quick 15 min meditation",
       "short_name": "15 min",
       "description": "Start a 15 minute meditation session",
-      "url": "/?quick=15",
+      "url": "./?quick=15",
       "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
     },
     {
       "name": "Quick 30 min meditation",
       "short_name": "30 min",
       "description": "Start a 30 minute meditation session",
-      "url": "/?quick=30",
+      "url": "./?quick=30",
       "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
     }
   ]
