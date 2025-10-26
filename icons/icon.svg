@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="110" fill="url(#grad)"/>
+
+  <!-- Meditation person silhouette -->
+  <g fill="#ffffff" opacity="0.95">
+    <!-- Head -->
+    <circle cx="256" cy="160" r="45"/>
+
+    <!-- Body -->
+    <ellipse cx="256" cy="280" rx="80" ry="90"/>
+
+    <!-- Legs (lotus position) -->
+    <path d="M 176 320 Q 140 340 120 360 Q 110 370 115 380 Q 120 390 135 385 Q 180 370 200 350 L 256 340"/>
+    <path d="M 336 320 Q 372 340 392 360 Q 402 370 397 380 Q 392 390 377 385 Q 332 370 312 350 L 256 340"/>
+
+    <!-- Arms -->
+    <ellipse cx="180" cy="280" rx="30" ry="60" transform="rotate(-20 180 280)"/>
+    <ellipse cx="332" cy="280" rx="30" ry="60" transform="rotate(20 332 280)"/>
+
+    <!-- Hands in meditation pose -->
+    <circle cx="230" cy="310" r="18"/>
+    <circle cx="282" cy="310" r="18"/>
+  </g>
+
+  <!-- Zen circle (enso) around the figure -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#ffffff" stroke-width="8" opacity="0.4" stroke-dasharray="1200 50"/>
+</svg>

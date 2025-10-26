@@ -10,6 +10,9 @@ A simple, elegant meditation timer web application with customizable audio alert
 - **Visual Progress**: Watch your progress with a smooth progress bar
 - **Pause/Resume**: Take breaks when needed without losing your progress
 - **Responsive Design**: Works beautifully on desktop and mobile devices
+- **Progressive Web App**: Install as a native app on your phone (Android, iOS, GrapheneOS)
+- **Offline Support**: Works without internet connection once installed
+- **Privacy-Focused**: No tracking, no external servers, all data stays on your device
 
 ## Usage
 
@@ -68,12 +71,44 @@ The timer will:
 - **Pause**: Pause and resume as needed
 - **Stop**: End the meditation early
 
+## Install as Mobile App
+
+This app is a Progressive Web App (PWA) that can be installed on your phone like a native app!
+
+### For GrapheneOS / Android
+
+1. Host the app on GitHub Pages, Netlify, or any web server
+2. Open the URL in Vanadium, Chrome, or Brave browser
+3. Tap the menu (⋮) and select "Add to Home screen" or "Install app"
+4. The app will appear on your home screen and work offline
+
+**GrapheneOS users**: See [INSTALL_GRAPHENEOS.md](INSTALL_GRAPHENEOS.md) for detailed instructions.
+
+### For iOS/iPhone
+
+1. Open the app URL in Safari
+2. Tap the Share button
+3. Select "Add to Home Screen"
+4. Confirm to install
+
+### Benefits of Installing
+
+- Works offline after first load
+- No app store required
+- Native app-like experience
+- No browser UI clutter
+- Privacy-focused (no tracking)
+- Faster access from home screen
+
 ## Technical Details
 
 - Pure HTML, CSS, and JavaScript
 - No external dependencies or frameworks required
+- Progressive Web App (PWA) with service worker
 - Runs entirely in the browser
 - Audio files are stored in memory (not uploaded to any server)
+- Offline support via service worker caching
+- Installable on mobile and desktop platforms
 
 ## Browser Compatibility
 
@@ -81,6 +116,15 @@ Works in all modern browsers that support:
 - HTML5 Audio API
 - FileReader API
 - ES6 JavaScript
+- Service Workers (for PWA functionality)
+- Web App Manifest (for installation)
+
+Tested on:
+- Chrome/Chromium (Android, Desktop)
+- Vanadium (GrapheneOS)
+- Safari (iOS, macOS)
+- Firefox (Android, Desktop)
+- Brave (Android, Desktop)
 
 ## Troubleshooting
 
