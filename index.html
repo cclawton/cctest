@@ -29,24 +29,36 @@
                 <h3>Audio Settings</h3>
 
                 <div class="audio-upload">
-                    <label for="startAudio">Start Sound:</label>
-                    <input type="file" id="startAudio" accept="audio/*">
-                    <span class="file-name" id="startFileName">No file selected</span>
-                    <button class="test-audio-btn" id="testStartAudio" disabled>Test</button>
+                    <label for="startAudioSelect">Start Sound:</label>
+                    <select id="startAudioSelect" class="audio-select">
+                        <option value="audio/start-bell.mp3">Meditation Bell (Default)</option>
+                        <option value="custom">Upload Custom Audio...</option>
+                    </select>
+                    <input type="file" id="startAudio" accept="audio/*" style="display: none;">
+                    <span class="file-name" id="startFileName"></span>
+                    <button class="test-audio-btn" id="testStartAudio">Test</button>
                 </div>
 
                 <div class="audio-upload">
-                    <label for="intervalAudio">Interval Sound:</label>
-                    <input type="file" id="intervalAudio" accept="audio/*">
-                    <span class="file-name" id="intervalFileName">No file selected</span>
-                    <button class="test-audio-btn" id="testIntervalAudio" disabled>Test</button>
+                    <label for="intervalAudioSelect">Interval Sound:</label>
+                    <select id="intervalAudioSelect" class="audio-select">
+                        <option value="audio/interval-bell.mp3">Zen Temple Bell (Default)</option>
+                        <option value="custom">Upload Custom Audio...</option>
+                    </select>
+                    <input type="file" id="intervalAudio" accept="audio/*" style="display: none;">
+                    <span class="file-name" id="intervalFileName"></span>
+                    <button class="test-audio-btn" id="testIntervalAudio">Test</button>
                 </div>
 
                 <div class="audio-upload">
-                    <label for="endAudio">End Sound:</label>
-                    <input type="file" id="endAudio" accept="audio/*">
-                    <span class="file-name" id="endFileName">No file selected</span>
-                    <button class="test-audio-btn" id="testEndAudio" disabled>Test</button>
+                    <label for="endAudioSelect">End Sound:</label>
+                    <select id="endAudioSelect" class="audio-select">
+                        <option value="audio/end-bell.wav">Temple Bells (Default)</option>
+                        <option value="custom">Upload Custom Audio...</option>
+                    </select>
+                    <input type="file" id="endAudio" accept="audio/*" style="display: none;">
+                    <span class="file-name" id="endFileName"></span>
+                    <button class="test-audio-btn" id="testEndAudio">Test</button>
                 </div>
             </div>
 

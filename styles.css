@@ -100,6 +100,28 @@ h3 {
     font-weight: 600;
 }
 
+.audio-select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    color: #2d3748;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.audio-select:focus {
+    outline: none;
+    border-color: #5a67d8;
+}
+
+.audio-select:hover {
+    border-color: #a0aec0;
+}
+
 .audio-upload input[type="file"] {
     display: block;
     margin-bottom: 8px;
@@ -109,9 +131,10 @@ h3 {
 .file-name {
     display: inline-block;
     color: #718096;
-    font-size: 14px;
+    font-size: 13px;
     font-style: italic;
     margin-right: 10px;
+    margin-left: 5px;
 }
 
 .test-audio-btn {
