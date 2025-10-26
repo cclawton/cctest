@@ -17,6 +17,7 @@ class MeditationTimer {
 
         this.initializeElements();
         this.attachEventListeners();
+        this.loadDefaultAudio();
     }
 
     initializeElements() {
@@ -25,6 +26,11 @@ class MeditationTimer {
         this.totalSecondsInput = document.getElementById('totalSeconds');
         this.intervalMinutesInput = document.getElementById('intervalMinutes');
         this.intervalSecondsInput = document.getElementById('intervalSeconds');
+
+        // Audio dropdowns
+        this.startAudioSelect = document.getElementById('startAudioSelect');
+        this.intervalAudioSelect = document.getElementById('intervalAudioSelect');
+        this.endAudioSelect = document.getElementById('endAudioSelect');
 
         // Audio file inputs
         this.startAudioInput = document.getElementById('startAudio');
@@ -58,6 +64,11 @@ class MeditationTimer {
     }
 
     attachEventListeners() {
+        // Audio dropdown changes
+        this.startAudioSelect.addEventListener('change', (e) => this.handleAudioSelect(e, 'start'));
+        this.intervalAudioSelect.addEventListener('change', (e) => this.handleAudioSelect(e, 'interval'));
+        this.endAudioSelect.addEventListener('change', (e) => this.handleAudioSelect(e, 'end'));
+
         // Audio file uploads
         this.startAudioInput.addEventListener('change', (e) => this.handleAudioUpload(e, 'start'));
         this.intervalAudioInput.addEventListener('change', (e) => this.handleAudioUpload(e, 'interval'));
@@ -74,6 +85,39 @@ class MeditationTimer {
         this.stopBtn.addEventListener('click', () => this.stopMeditation());
     }
 
+    loadDefaultAudio() {
+        // Load default audio files on page load
+        this.loadAudioFromPath('audio/start-bell.mp3', 'start');
+        this.loadAudioFromPath('audio/interval-bell.mp3', 'interval');
+        this.loadAudioFromPath('audio/end-bell.wav', 'end');
+    }
+
+    loadAudioFromPath(path, type) {
+        this.audioFiles[type] = new Audio(path);
+        this.audioFiles[type].addEventListener('error', () => {
+            console.warn(`Failed to load ${type} audio from ${path}`);
+        });
+    }
+
+    handleAudioSelect(event, type) {
+        const select = event.target;
+        const value = select.value;
+
+        if (value === 'custom') {
+            // Show file input for custom upload
+            const fileInput = document.getElementById(`${type}Audio`);
+            fileInput.style.display = 'inline-block';
+            fileInput.click();
+        } else {
+            // Load selected preset audio
+            this.loadAudioFromPath(value, type);
+            const fileInput = document.getElementById(`${type}Audio`);
+            fileInput.style.display = 'none';
+            const fileNameElement = document.getElementById(`${type}FileName`);
+            fileNameElement.textContent = '';
+        }
+    }
+
     handleAudioUpload(event, type) {
         const file = event.target.files[0];
         if (file) {
@@ -81,7 +125,24 @@ class MeditationTimer {
             reader.onload = (e) => {
                 this.audioFiles[type] = new Audio(e.target.result);
                 this.updateFileName(type, file.name);
-                this.enableTestButton(type);
+
+                // Add custom file to dropdown
+                const select = document.getElementById(`${type}AudioSelect`);
+
+                // Remove any previous custom uploads from dropdown
+                const customOptions = Array.from(select.options).filter(opt => opt.dataset.custom === 'true');
+                customOptions.forEach(opt => opt.remove());
+
+                // Add new custom option
+                const customOption = document.createElement('option');
+                customOption.value = 'custom-uploaded';
+                customOption.textContent = file.name;
+                customOption.dataset.custom = 'true';
+                customOption.selected = true;
+
+                // Insert before "Upload Custom Audio..." option
+                const uploadOption = Array.from(select.options).find(opt => opt.value === 'custom');
+                select.insertBefore(customOption, uploadOption);
             };
             reader.readAsDataURL(file);
         }
@@ -89,12 +150,7 @@ class MeditationTimer {
 
     updateFileName(type, name) {
         const fileNameElement = document.getElementById(`${type}FileName`);
-        fileNameElement.textContent = name;
-    }
-
-    enableTestButton(type) {
-        const testBtn = document.getElementById(`test${this.capitalize(type)}Audio`);
-        testBtn.disabled = false;
+        fileNameElement.textContent = `(${name})`;
     }
 
     capitalize(str) {

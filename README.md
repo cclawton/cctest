@@ -19,7 +19,8 @@ A simple, elegant meditation timer web application with customizable audio alert
 2. Configure your meditation session:
    - Set the total duration (e.g., 1 hour 15 minutes = 75 minutes, 0 seconds)
    - Set the periodic interval (e.g., 12 minutes, 0 seconds)
-   - Upload audio files for start, interval, and end sounds
+   - Select audio files from the dropdown menus (default bells are pre-selected)
+   - Optionally upload custom audio files by selecting "Upload Custom Audio..."
 
 ### Audio Files
 
@@ -27,7 +28,22 @@ A simple, elegant meditation timer web application with customizable audio alert
 - **Interval Sound**: Plays at each periodic interval (e.g., every 12 minutes)
 - **End Sound**: Plays when your meditation session is complete
 
-You can test each audio file using the "Test" button after uploading.
+Each audio type has a dropdown menu where you can:
+
+- Select from the included default meditation bells
+- Upload your own custom audio by choosing "Upload Custom Audio..."
+- Test any selected audio using the "Test" button
+
+**Sample Audio Files Included:**
+
+The `audio/` directory contains three high-quality, royalty-free meditation bells:
+
+- `start-bell.mp3` - Single stroke meditation bell (CC0 license by fauxpress from Freesound.org)
+- `interval-bell.mp3` - Zen Buddhist temple bell (Attribution 3.0 license from SoundBible.com)
+- `end-bell.wav` - Temple bells with natural ambience (CC0 license by Paresh from Freesound.org)
+
+These sounds are free for commercial use and can be used as-is, or you can upload your own custom audio files.
+
 
 ### Example Setup
 
@@ -74,3 +90,4 @@ Works in all modern browsers that support:
 4. Consider using different sounds for start, interval, and end to create variety
 
 Enjoy your meditation practice!
+
