@@ -86,10 +86,10 @@ class MeditationTimer {
     }
 
     loadDefaultAudio() {
-        // Load default audio files on page load
-        this.loadAudioFromPath('audio/start-bell.wav', 'start');
+        // Load default audio files on page load (OGG format for better compression)
+        this.loadAudioFromPath('audio/start-bell.ogg', 'start');
         this.loadAudioFromPath('audio/interval-bell.mp3', 'interval');
-        this.loadAudioFromPath('audio/end-bell.wav', 'end');
+        this.loadAudioFromPath('audio/end-bell.ogg', 'end');
     }
 
     loadAudioFromPath(path, type) {
