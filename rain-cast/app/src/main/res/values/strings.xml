@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RainCast</string>
+    <string name="rain_alerts_channel">Rain Alerts</string>
+    <string name="rain_alerts_description">Notifications for approaching rain</string>
+    <string name="daily_forecast_channel">Daily Forecast</string>
+    <string name="daily_forecast_description">Morning rain outlook summary</string>
+    <string name="monitor_channel">Rain Monitor</string>
+    <string name="monitor_description">Background rain monitoring service</string>
+    <string name="no_rain_nearby">No rain nearby</string>
+    <string name="rain_arriving">Rain in ~%1$d min</string>
+    <string name="currently_raining">Currently raining</string>
+    <string name="rain_clearing">Rain clearing in ~%1$d min</string>
+    <string name="offline_banner">Offline \u2014 data from %1$s</string>
+    <string name="data_stale">Data stale \u2014 last updated %1$s</string>
+    <string name="location_permission_rationale">RainCast needs your location to show radar data and predict rain at your position.</string>
+    <string name="notification_permission_rationale">Allow notifications to get rain alerts before it arrives.</string>
+    <string name="attribution_rainviewer">Radar data \u00a9 RainViewer / Source: Australian Bureau of Meteorology</string>
+    <string name="attribution_openmeteo">Weather data provided by Open-Meteo.com (CC BY 4.0)</string>
+    <string name="attribution_osm">\u00a9 OpenStreetMap contributors</string>
+</resources>
