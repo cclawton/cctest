@@ -56,7 +56,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             fetchLocation()
             refreshRadarData()
             fetchWeatherData()
-            _uiState.value = _uiState.value.copy(isLoading = true)
+            _uiState.value = _uiState.value.copy(isLoading = false)
         }
     }
 

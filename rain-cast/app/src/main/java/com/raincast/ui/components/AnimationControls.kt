@@ -48,8 +48,9 @@ fun AnimationControls(
             Spacer(modifier = Modifier.height(4.dp))
 
             // Progress indicator
+            @Suppress("DEPRECATION")
             LinearProgressIndicator(
-                progress = { if (totalFrames > 0) (currentFrameIndex + 1).toFloat() / totalFrames else 0f },
+                progress = if (totalFrames > 0) (currentFrameIndex + 1).toFloat() / totalFrames else 0f,
                 modifier = Modifier.fillMaxWidth(),
                 color = MaterialTheme.colorScheme.primary,
                 trackColor = MaterialTheme.colorScheme.surfaceVariant

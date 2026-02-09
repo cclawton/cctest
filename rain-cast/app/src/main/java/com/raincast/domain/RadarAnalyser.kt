@@ -1,12 +1,9 @@
 package com.raincast.domain
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import com.raincast.domain.models.MovementVector
-import com.raincast.domain.models.RainCell
 import com.raincast.domain.models.RainIntensity
-import java.net.URL
 import kotlin.math.*
 
 class RadarAnalyser {
