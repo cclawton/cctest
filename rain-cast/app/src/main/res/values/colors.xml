@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rain_light">#FF64B5F6</color>
+    <color name="rain_moderate">#FF1E88E5</color>
+    <color name="rain_heavy">#FFFDD835</color>
+    <color name="rain_very_heavy">#FFFB8C00</color>
+    <color name="rain_extreme">#FFE53935</color>
+    <color name="no_rain">#FF4CAF50</color>
+    <color name="confidence_high">#FF4CAF50</color>
+    <color name="confidence_medium">#FFFFC107</color>
+    <color name="confidence_low">#FFFF5722</color>
+</resources>
